@@ -7,12 +7,17 @@
         "ext-iconv": "*",
         "ext-json": "*",
         "beberlei/assert": "^3.0",
+        "friendsofsymfony/rest-bundle": "^2.5",
         "ircmaxell/random-lib": "^1.2",
+        "nelmio/cors-bundle": "^1.5",
         "shrikeh/teapot": "^2.3",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
+        "symfony/form": "*",
         "symfony/framework-bundle": "*",
         "symfony/orm-pack": "^1.0",
+        "symfony/serializer-pack": "^1.0",
+        "symfony/validator": "*",
         "symfony/yaml": "*"
     },
     "require-dev": {
