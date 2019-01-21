@@ -43,6 +43,11 @@ class Album
      */
     private $songs;
 
+    /**
+     * @ORM\Column(type="string", length=6)
+     */
+    private $album_token;
+
     public function __construct()
     {
         $this->artist_id = new ArrayCollection();
@@ -143,6 +148,18 @@ class Album
                 $song->setAlbumId(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getAlbumToken(): ?string
+    {
+        return $this->album_token;
+    }
+
+    public function setAlbumToken(string $album_token): self
+    {
+        $this->album_token = $album_token;
 
         return $this;
     }
