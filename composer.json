@@ -10,6 +10,7 @@
         "friendsofsymfony/rest-bundle": "^2.5",
         "ircmaxell/random-lib": "^1.2",
         "nelmio/cors-bundle": "^1.5",
+        "sensio/framework-extra-bundle": "^5.2",
         "shrikeh/teapot": "^2.3",
         "symfony/console": "*",
         "symfony/flex": "^1.1",
