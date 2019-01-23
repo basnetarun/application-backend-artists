@@ -14,7 +14,10 @@ use App\Utils\TokenGenerator;
 
 class AppFixtures extends Fixture
 {
-    public function load(ObjectManager $manager)
+
+	private $tokenArray = array();
+
+	public function load(ObjectManager $manager)
     {
         // read given json url and convert to array 
 		
@@ -23,6 +26,8 @@ class AppFixtures extends Fixture
 		
 		
 		if(is_array($data) && !empty($data)):
+
+		
 		foreach ($data as $artist):
 			
 			
@@ -30,7 +35,7 @@ class AppFixtures extends Fixture
 			
 			// generate a token for artist 
 				
-			$artist['token'] = TokenGenerator::generate(6);
+			$artist['token'] = $this->getToken();
 			
 			
 			$artistObj = new Artist();
@@ -45,7 +50,7 @@ class AppFixtures extends Fixture
 			if(is_array($artist['albums']) && !empty($artist['albums'])):
 				foreach($artist['albums'] as $album):
 					
-					$album['token'] = TokenGenerator::generate(6);
+					$album['token'] = $this->getToken();
 					
 					$albumObj = new Album();
 					
@@ -94,5 +99,18 @@ class AppFixtures extends Fixture
         
         $manager->flush();
         return;
-    }
+	}
+	
+
+	private function getToken() {
+		
+		$token = TokenGenerator::generate(6);
+		while(in_array($token, $this->tokenArray)) {
+			$token = TokenGenerator::generate(6);
+		}
+		array_push($this->tokenArray, $token);
+		return $token;
+		
+
+	}
 }
